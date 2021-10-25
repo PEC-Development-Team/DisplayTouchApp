@@ -33,7 +33,7 @@ namespace TouchBrowser
 
             InitBrowser();
             this.DoubleBuffered = true;
-            debug = true;
+            debug = false;
 
             RefreshTimer = new System.Timers.Timer();
             RefreshTimer.Enabled = false;
@@ -55,11 +55,10 @@ namespace TouchBrowser
             }
 
             autoRefresh = true;
-            url = "https://google.com";
+            url = "https://55.195.98.135";
 
             List<string> users = new List<string>();
-            //List of user accounts delimited by comma removed from this public repo
-            users = "".Split(',').ToList();
+            users = "svc.itrk.ngpe,svc.miltv.ngpe,svc.pectv.ngpe,svc.tsaero.ngpe,svc.tsale.ngpe,svc.tscol.ngpe,svc.tsfre1.ngpe,svc.tsfre2.ngpe,svc.tsgen2.ngpe,svc.tsgrt.ngpe,svc.tsind.ngpe,svc.tsjac.ngpe,svc.tslaf.ngpe,svc.tslex.ngpe,svc.tslib.ngpe,svc.tslin.ngpe,svc.tsmil.ngpe,svc.tsmnt.ngpe,svc.tsmoh.ngpe,svc.tspat1.ngpe,svc.tspat2.ngpe,svc.tspri.ngpe,svc.tssar.ngpe,svc.tssgt.ngpe,svc.tstre.ngpe,svc.tstru.ngpe,svc.tsval.ngpe,svc.tswas.ngpe,svc.tsyor.ngpe,svc.vitv1.ngpe,britton.scritchfield,ash.beckett,svc.tsgen2.ngpe,svc.ldrmil.ngpe".Split(',').ToList();
 
             string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
 
@@ -78,24 +77,79 @@ namespace TouchBrowser
                 {
                     switch (user)
                     {
-                        case "username":
-                            url = "https://google.com";
+                        case "svc.itrk.ngpe":
+                            url = "https://pecnet/apps/maint/";
                             break;
-                        case "devuser":
+                        case "svc.miltv.ngpe":
+                            url = "https://55.195.98.135/?dt=tv2";
+                            pictureBoxRefresh.Visible = false;
+                            break;
+                        case "svc.pectv.ngpe":
+                            url = "https://55.195.98.135/?dt=tv";
+                            pictureBoxRefresh.Visible = false;
+                            break;
+                        case "svc.ldrmil.ngpe":
+                            url = "https://55.195.98.135/?dt=ldermil";
+                            pictureBoxRefresh.Visible = false;
+                            break;
+                        case "svc.tsaero.ngpe":
+                            autoRefresh = false;
+                            url = "https://55.195.98.135/GymMedia/";
+                            pictureBoxRefresh.Visible = false;
+                            break;
+                        case "svc.tsfre1.ngpe":
+                            autoRefresh = false;
+                            //url = "https://pecnet/apps/gymcheckin/";
+                            //url = "https://localhost:53341/GymMgmt/GymKiosk/#_fitnesscentersignin";
+                            //url = "https://pecportal/GymMgmt/GymKiosk/#_fitnesscentersignin";
+                            url = "https://pecportal/T3/GymMgmt/GymKiosk";
+                            pictureBoxRefresh.Visible = false;
+                            break;
+                        case "svc.tsfre2.ngpe":
+                            autoRefresh = true;
+                            url = "https://55.195.98.135/?dt=g";
+
+                            break;
+                        case "britton.scritchfield":
                             autoRefresh = true;
                             //CloseRunningApps("explorer|cmd|taskmgr|regedit|notepad|powershell|powershell_ise");
 
-                            url = "https://google.com";
+                            //url = "https://55.195.98.135/";
+                            //url = "https://55.195.98.135/MoHNew/";
+                            //url = "https://55.195.98.135/GymMedia/";
 
+                            //url = "https://localhost:44341/?dt=tv#";
+                            url = "https://pecportal/T3/GymMgmt/GymKiosk";
+                            //url = "https://55.195.98.135/?dt=tv";
+                            //url = "https://55.195.98.135/?dt=tv2";
+                            //url = "https://localhost:57078/?dt=tv2";
                             pictureBoxRefresh.Visible = false;
 
+                            //url = "https://localhost:53341/GymMgmt/GymKiosk/#_fitnesscentersignin";
+                            //url = "https://pecportal/GymMgmt/GymKiosk/#_fitnesscentersignin";
+
+                            //url = "https://55.195.98.135/?dt=ldermil";
+                            //url = "https://pecnet/apps/maint/";
+                            //url = "https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_video";
+                            //url = "file:///U:/SVN/TouchScreens/HTML5Video/test.html";
+
+                            url = "https://pecportal/T3/GymMgmt/GymKiosk";
+
+                            break;
+                        case "svc.tsmoh.ngpe":
+                            autoRefresh = true;
+                            url = "https://55.195.98.135/MoHNew/";
+                            break;
+                        case "svc.tsgen2.ngpe":
+                            autoRefresh = true;
+                            url = "https://55.195.98.135/MoHNew/";
                             break;
                         default:
                             if (!user.Contains("ts"))
                             {
                                 userAuth = false;
                             }
-                            url = "https://google.com";
+                            url = "https://55.195.98.135";
                             break;
                     }
                     userAuth = true;
